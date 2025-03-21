@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://ccbr.github.io/LOGAN/dev/user-guide/pipeline/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Tumor-Normal - CCBR LOGAN</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Tumor-Normal";
         var mkdocs_page_input_path = "user-guide/pipeline.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/LOGAN/dev/user-guide/pipeline/";
       </script>
     
     <!--[if lt IE 9]>
@@ -32,7 +32,10 @@
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
           <a href="../.." class="icon icon-home"> CCBR LOGAN
-        </a><div role="search">
+        </a>
+        <div class="version">
+          {'provider': 'mike'}
+        </div><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
@@ -158,7 +161,7 @@ Example: <code>--cnvcallers purple</code></p>
 <p><code>--svcallers</code> - Comma separated argument for selecting only specified SV callers, the default is to use all.
 Example: <code>--svcallers gridss</code></p>
 <p><code>--ffpe</code> - Adds additional filtering for FFPE by detecting strand orientation bias using SOBDetector. </p>
-<p><code>--exome</code> - Limits calling to intervals provided in target bed to reduce time and to account for exome sequencing specific parameters.</p>
+<p><code>--exome</code> - When using exome data, this flag limits calling to intervals provided in target bed to reduce time and to account for exome sequencing specific parameters. An intervals file is required.</p>
 <p><code>--indelrealign</code> - Enables indel realignment using the GATK pipeline when running alignment steps. May be helpful for certain callers (VarScan, VarDict) that do not have local haplotype reassembly.</p>
 <h2 id="running-logan">Running LOGAN</h2>
 <p>Example of Tumor_Normal calling mode </p>
