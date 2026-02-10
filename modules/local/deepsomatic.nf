@@ -11,7 +11,7 @@ if(params.exome && params.ffpe) {
 }
 
 process deepsomatic_tn_step1 {
-    container = "${params.containers.deepsomatic}"
+    container "${params.containers.deepsomatic}"
     label 'process_somaticcaller'
     errorStrategy { task.exitStatus == 1 ? 'ignore' : 'terminate' }
 
@@ -52,7 +52,7 @@ process deepsomatic_tn_step1 {
 
 
 process deepsomatic_tonly_step1 {
-    container = "${params.containers.deepsomatic}"
+    container "${params.containers.deepsomatic}"
     label 'process_somaticcaller'
     errorStrategy { task.exitStatus == 1 ? 'ignore' : 'terminate' }
 
@@ -91,7 +91,7 @@ process deepsomatic_tonly_step1 {
 
 //Step 2 can run in CPU or GPU mode for now use only CPUs
 process deepsomatic_step2 {
-    container = "${params.containers.deepsomatic}"
+    container "${params.containers.deepsomatic}"
     label 'process_somaticcaller'
     errorStrategy { task.exitStatus == 1 ? 'ignore' : 'terminate' }
 
@@ -123,7 +123,7 @@ process deepsomatic_step2 {
 }
 
 process deepsomatic_tonly_step2 {
-    container = "${params.containers.deepsomatic}"
+    container "${params.containers.deepsomatic}"
     label 'process_somaticcaller'
     errorStrategy { task.exitStatus == 1 ? 'ignore' : 'terminate' }
 
@@ -157,7 +157,7 @@ process deepsomatic_tonly_step2 {
 
 //Step 3 DV
 process deepsomatic_step3 {
-    container = "${params.containers.deepsomatic}"
+    container "${params.containers.deepsomatic}"
     label 'process_somaticcaller'
     errorStrategy { task.exitStatus == 1 ? 'ignore' : 'terminate' }
 
@@ -188,7 +188,7 @@ process deepsomatic_step3 {
 
 
 process bcfconcat {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_low'
 
     input:

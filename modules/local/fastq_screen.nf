@@ -2,7 +2,7 @@ FASTQ_SCREEN_CONF=file(params.fastq_screen_conf)
 
 process fastq_screen {
     //Uses Trimmed Files
-    container = "${params.containers.loganqc}"
+    container "${params.containers.loganqc}"
     label 'process_medium'
 
     input:

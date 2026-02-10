@@ -13,7 +13,7 @@ process snpeff {
     @Output:
         Evaluation table containing a collection of summary statistics
     */
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
 
     input:

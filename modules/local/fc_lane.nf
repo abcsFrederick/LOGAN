@@ -1,5 +1,5 @@
 process fc_lane {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_low'
 
     input:

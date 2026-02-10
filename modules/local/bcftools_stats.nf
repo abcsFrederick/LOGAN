@@ -12,7 +12,7 @@ process bcftools_stats {
     @Output:
         Text file containing a collection of summary statistics
     */
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
 
     input:

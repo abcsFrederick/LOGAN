@@ -15,7 +15,7 @@ process gatk_varianteval {
     @Output:
         Evaluation table containing a collection of summary statistics
     */
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
 
     input:
@@ -50,7 +50,7 @@ process collectvariantcallmetrics {
     @Output:
         Text file containing a collection of metrics relating to snps and indels
     */
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
 
     input:

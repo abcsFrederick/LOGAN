@@ -9,7 +9,7 @@ SEQUENZA_SCRIPT = params.script_sequenza
 
 
 process seqz_sequenza_bychr {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_long'
     errorStrategy 'ignore'
 
@@ -40,7 +40,7 @@ process seqz_sequenza_bychr {
 
 
 process sequenza {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
     errorStrategy 'ignore'
 
@@ -105,7 +105,7 @@ process sequenza {
 //**NOTE**: This process is not used in the pipeline, but is kept for reference
 
 process pileup_sequenza {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_low'
     errorStrategy 'ignore'
 
@@ -131,7 +131,7 @@ process pileup_sequenza {
 }
 
 process seqz_sequenza_reg {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_low'
     errorStrategy 'ignore'
 
@@ -161,7 +161,7 @@ process seqz_sequenza_reg {
 
 
 process seqz_sequenza {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_low'
 
     input:

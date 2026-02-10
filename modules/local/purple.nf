@@ -15,7 +15,7 @@ GERMLINEHOTSPOTS = file(params.genomes[params.genome].GERMLINEHOTSPOTS)
 
 
 process amber_tonly {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
     errorStrategy 'ignore'
 
@@ -49,7 +49,7 @@ process amber_tonly {
 }
 
 process amber_tn {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
     errorStrategy 'ignore'
 
@@ -84,7 +84,7 @@ process amber_tn {
 }
 
 process cobalt_tonly {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
     errorStrategy 'ignore'
 
@@ -116,7 +116,7 @@ process cobalt_tonly {
 }
 
 process cobalt_tn {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
     errorStrategy 'ignore'
 
@@ -150,7 +150,7 @@ process cobalt_tn {
 
 
 process purple {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
     errorStrategy 'ignore'
 
@@ -192,7 +192,7 @@ process purple {
 
 
 process purple_novc {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
     errorStrategy 'ignore'
 
@@ -232,7 +232,7 @@ process purple_novc {
 
 
 process purple_tonly {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
     errorStrategy 'ignore'
 
@@ -273,7 +273,7 @@ process purple_tonly {
 
 
 process purple_tonly_novc {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
     errorStrategy 'ignore'
     

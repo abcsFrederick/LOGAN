@@ -13,7 +13,7 @@ if (params.genome.matches("hg38(.*)")| params.genome.matches("hg19(.*)")){
 
 
 process gridss_somatic {
-    container = "${params.containers.sv}"
+    container "${params.containers.sv}"
 
     input:
         tuple val(tumorname), path(tumor), path(tumorbai), 
@@ -32,7 +32,7 @@ process gridss_somatic {
     script:
     """
     gridss --jar /opt2/gridss/gridss-2.13.2-gridss-jar-with-dependencies.jar \
-    -r $BWAGENOME \
+    -r $GENOMEREF \
     -l ${normalname},${tumorname} \
     -o ${tumorname}_vs_${normalname}.vcf.gz -b $BLACKLIST \
     --picardoptions VALIDATION_STRINGENCY=LENIENT \
@@ -75,7 +75,7 @@ process gridss_somatic {
 
 
 process gridss_tonly {
-    container = "${params.containers.sv}"
+    container "${params.containers.sv}"
 
     input:
         tuple val(tumorname), path(tumor), path(tumorbai)
@@ -90,7 +90,7 @@ process gridss_tonly {
     script:
     """
     gridss --jar /opt2/gridss/gridss-2.13.2-gridss-jar-with-dependencies.jar \
-    -r $BWAGENOME \
+    -r $GENOMEREF \
     -l ${tumorname} \
     -o ${tumorname}.vcf.gz -b $BLACKLIST \
     --picardoptions VALIDATION_STRINGENCY=LENIENT \

@@ -1,6 +1,6 @@
 
 process sobdetect_pass1 {
-    container = "${params.containers.ffpe}"
+    container "${params.containers.ffpe}"
     label 'process_medium'
 
     input:
@@ -44,7 +44,7 @@ process sobdetect_pass1 {
 
 // Cohort parameter calculation
 process sobdetect_cohort_params {
-    container = "${params.containers.ffpe}"
+    container "${params.containers.ffpe}"
     label 'process_medium'
 
     input:
@@ -72,7 +72,7 @@ process sobdetect_cohort_params {
 }   
 
 process sobdetect_pass2 {
-    container = "${params.containers.ffpe}"
+    container "${params.containers.ffpe}"
     label 'process_medium'
 
     input:
@@ -128,7 +128,7 @@ process sobdetect_pass2 {
 
 // Metrics calculation
 process sobdetect_metrics {
-    container = "${params.containers.ffpe}"
+    container "${params.containers.ffpe}"
     label 'process_medium'
 
     input:

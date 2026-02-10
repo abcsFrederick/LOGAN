@@ -7,7 +7,7 @@ REFFLAT = file(params.genomes[params.genome].REFFLAT)
 ACCESS = file(params.genomes[params.genome].ACCESS)
 
 process cnvkit {
-    container = "${params.containers.cnv}"
+    container "${params.containers.cnv}"
     label 'process_medium'
 
     input:
@@ -40,7 +40,7 @@ process cnvkit {
 }
 
 process cnvkit_exome {
-    container = "${params.containers.cnv}"
+    container "${params.containers.cnv}"
     label 'process_medium'
 
     input:
@@ -74,7 +74,7 @@ process cnvkit_exome {
 
 
 process cnvkit_tonly {
-    container = "${params.containers.cnv}"
+    container "${params.containers.cnv}"
     label 'process_medium'
 
     input:
@@ -104,7 +104,7 @@ process cnvkit_tonly {
 }
 
 process cnvkit_exome_tonly {
-    container = "${params.containers.cnv}"
+    container "${params.containers.cnv}"
     label 'process_medium'
 
     input:
