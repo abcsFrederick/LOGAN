@@ -1,5 +1,7 @@
 ## LOGAN development version
 
+## LOGAN 0.3.3
+
 - Fixed container mount error - removed broken paths. (#111, @samarth8392)
 - Fixed input file name collision in Octopus variant calling. (#111, @samarth8392)
 - Fixed AnnotSV database path resolution in tumor-only SV workflows. (#111, @samarth8392)
