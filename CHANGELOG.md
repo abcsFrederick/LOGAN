@@ -1,5 +1,9 @@
 ## LOGAN development version
 
+- Fixed container mount error - removed broken paths. (#111, @samarth8392)
+- Fixed input file name collision in Octopus variant calling. (#111, @samarth8392)
+- Fixed AnnotSV database path resolution in tumor-only SV workflows. (#111, @samarth8392)
+
 ## LOGAN 0.3.2
 
 - Uses Nextflow v25 for logan run; fixes the bug in stub run in nf v24.10 (see: https://github.com/nextflow-io/nextflow/issues/5456) (#99, @samarth8392)
