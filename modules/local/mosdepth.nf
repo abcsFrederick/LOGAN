@@ -13,7 +13,7 @@ process mosdepth {
         `{prefix}.quantized.bed.gz` (if --quantize is specified)
         `{prefix}.thresholds.bed.gz` (if --thresholds is specified)
     */
-    container = "${params.containers.loganqc}"
+    container "${params.containers.loganqc}"
     label 'process_medium'
 
     input:
@@ -42,7 +42,7 @@ process mosdepth {
 
 
 process mosdepth_exome {
-    container = "${params.containers.loganqc}"
+    container "${params.containers.loganqc}"
     label 'process_medium'
 
     input:

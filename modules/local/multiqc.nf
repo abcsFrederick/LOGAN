@@ -11,7 +11,7 @@ process multiqc {
     @Output:
         Interactive MulitQC report and a QC metadata table
     """
-    container = "${params.containers.multiqc}"
+    container "${params.containers.multiqc}"
     label 'process_low'
 
     input:

@@ -1,7 +1,7 @@
 process fastp {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
-    tag { name }
+    tag { samplename }
 
     input:
     tuple val(samplename), path(fqs)
@@ -36,7 +36,7 @@ process fastp {
 }
 
 process fastp_split {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
     tag { name }
 

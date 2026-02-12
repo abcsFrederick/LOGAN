@@ -14,7 +14,7 @@ process qualimap_bamqc {
     @Output:
         Report containing post-aligment quality-control metrics
     */
-    container = "${params.containers.loganqc}"
+    container "${params.containers.loganqc}"
 
     input:
         tuple val(samplename), path(bam), path(bai)

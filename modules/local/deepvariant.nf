@@ -12,7 +12,7 @@ any form of indel realignment,
 
 //Deep Variant
 process deepvariant_step1 {
-    container = "${params.containers.deepvariant}"
+    container "${params.containers.deepvariant}"
     label 'process_somaticcaller'
 
     input:
@@ -46,7 +46,7 @@ process deepvariant_step1 {
 
 //Step 2 requires GPU
 process deepvariant_step2 {
-    container = "${params.containers.deepvariant}"
+    container "${params.containers.deepvariant}"
     //clusterOptions '--gres=lscratch:100,gpu:p100:1  --partition=gpu'
     label 'process_somaticcaller'
 
@@ -79,7 +79,7 @@ process deepvariant_step2 {
 
 //Step 3 DV
 process deepvariant_step3 {
-    container = "${params.containers.deepvariant}"
+    container "${params.containers.deepvariant}"
     label 'process_somaticcaller'
     
     input:
@@ -113,7 +113,7 @@ process deepvariant_step3 {
 
 
 process bcfconcat {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_low'
 
     input:
@@ -138,7 +138,7 @@ process bcfconcat {
 
 
 process glnexus {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
 
     input:

@@ -18,7 +18,7 @@ SCRIPT_PATH_PCA = file(params.script_ancestry)
 
 //OUTPUT DIRECTORY
 process fc_lane {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_low'
 
     input:
@@ -46,7 +46,7 @@ process fc_lane {
 
 process fastq_screen {
     //Uses Trimmed Files
-    container = "${params.containers.loganqc}"
+    container "${params.containers.loganqc}"
     label 'process_medium'
 
     input:
@@ -94,7 +94,7 @@ process kraken {
     @Output:
         Kraken logfile and interactive krona report
     */
-    container = "${params.containers.loganqc}"
+    container "${params.containers.loganqc}"
     label 'process_high'
 
     input:
@@ -146,7 +146,7 @@ process fastqc {
     @Output:
         FastQC report and zip file containing sequencing quality information
     """
-    container = "${params.containers.loganqc}"
+    container "${params.containers.loganqc}"
     label 'process_medium'
 
     input:
@@ -183,7 +183,7 @@ process qualimap_bamqc {
     @Output:
         Report containing post-aligment quality-control metrics
     */
-    container = "${params.containers.loganqc}"
+    container "${params.containers.loganqc}"
     label 'process_medium'
 
     input:
@@ -226,7 +226,7 @@ process samtools_flagstats {
     @Output:
         Text file containing alignment statistics
     */
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
 
     input:
@@ -261,7 +261,7 @@ process mosdepth {
         `{prefix}.quantized.bed.gz` (if --quantize is specified)
         `{prefix}.thresholds.bed.gz` (if --thresholds is specified)
     */
-    container = "${params.containers.loganqc}"
+    container "${params.containers.loganqc}"
     label 'process_medium'
 
     input:
@@ -300,7 +300,7 @@ process vcftools {
     @Output:
         Text file containing a measure of heterozygosity
     */
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
 
     input:
@@ -332,7 +332,7 @@ process collectvariantcallmetrics {
     @Output:
         Text file containing a collection of metrics relating to snps and indels
     */
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
 
     input:
@@ -373,7 +373,7 @@ process bcftools_stats {
     @Output:
         Text file containing a collection of summary statistics
     */
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
 
     input:
@@ -406,7 +406,7 @@ process gatk_varianteval {
     @Output:
         Evaluation table containing a collection of summary statistics
     */
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
 
     input:
@@ -441,7 +441,7 @@ process snpeff {
     @Output:
         Evaluation table containing a collection of summary statistics
     */
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
 
     input:
@@ -484,7 +484,7 @@ process somalier_extract {
         rname = 'somalier_extract'
     container: config['images']['wes_base']
     */
-    container = "${params.containers.loganqc}"
+    container "${params.containers.loganqc}"
     label 'process_low'
 
     input:
@@ -521,7 +521,7 @@ process somalier_analysis_human {
         Separate tab-separated value (TSV) files with relatedness and ancestry outputs
 
     */
-    container = "${params.containers.loganqc}"
+    container "${params.containers.loganqc}"
     label 'process_low'
     errorStrategy='ignore'
 
@@ -586,7 +586,7 @@ process somalier_analysis_mouse {
         Separate tab-separated value (TSV) files with relatedness and ancestry outputs
 
     */
-    container = "${params.containers.loganqc}"
+    container "${params.containers.loganqc}"
     label 'process_low'
     errorStrategy='ignore'
 
@@ -640,7 +640,7 @@ process multiqc {
     @Output:
         Interactive MulitQC report and a QC metadata table
     """
-    container = "${params.containers.multiqc}"
+    container "${params.containers.multiqc}"
     label 'process_low'
 
     input:

@@ -45,7 +45,7 @@ process bqsr_ir {
     Base quality recalibration for all samples
     */
     errorStrategy 'ignore'
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_low'
     input:
         tuple val(samplename), path("${samplename}.ir.bam"), path("${samplename}.ir.bam.bai"), path(bed)
@@ -74,7 +74,7 @@ process bqsr {
     Base quality recalibration for all samples
     */
     errorStrategy 'ignore'
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_low'
     input:
         tuple val(samplename), path(bam), path(bai), path(bed)
@@ -99,7 +99,7 @@ process bqsr {
 }
 
 process gatherbqsr {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_low'
     
     input:
@@ -128,7 +128,7 @@ process applybqsr {
     /*
     Base quality recalibration for all samples to
     */
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_highmem'
 
     input:
@@ -160,7 +160,7 @@ process applybqsr {
 
 
 process samtoolsindex {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
 
     input:
@@ -184,7 +184,7 @@ process samtoolsindex {
 
 //Save to CRAM for output
 process bamtocram_tonly {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
 
     input:
@@ -208,7 +208,7 @@ process bamtocram_tonly {
 
 
 process samtools2fq {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
 
     input:

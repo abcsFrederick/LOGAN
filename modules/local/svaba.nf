@@ -3,7 +3,7 @@ INDELREF=file(params.genomes[params.genome].INDELREF)
 
 
 process svaba_somatic {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_high'
 
     input:
@@ -54,7 +54,7 @@ process svaba_somatic {
 
 
 process svaba_tonly {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_high'
 
     input:

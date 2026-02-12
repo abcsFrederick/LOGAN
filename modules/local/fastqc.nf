@@ -9,7 +9,7 @@ process fastqc {
     @Output:
         FastQC report and zip file containing sequencing quality information
     """
-    container = "${params.containers.loganqc}"
+    container "${params.containers.loganqc}"
     label 'process_medium'
 
     input:

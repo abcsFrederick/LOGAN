@@ -580,7 +580,11 @@ workflow VC {
     if ("octopus" in call_list){
         octopus_in=octopus_tn(bambyinterval) | bcftools_index_octopus
             | groupTuple()
-            | map{samplename,vcf,vcfindex-> tuple(samplename,vcf.toSorted{it->(it.name =~ /${samplename}_(.*).octopus.vcf.gz/)[0][1].toInteger()},vcfindex,"octopus","")}
+            | map{samplename,vcf,vcfindex-> 
+                def sortedVcf = vcf.toSorted{it->(it.name =~ /${samplename}_(.*).octopus.vcf.gz/)[0][1].toInteger()}.unique()
+                def sortedIdx = vcfindex.toSorted{it->(it.name =~ /${samplename}_(.*).octopus.vcf.gz.tbi/)[0][1].toInteger()}.unique()
+                tuple(samplename, sortedVcf, sortedIdx, "octopus", "")
+            }
             | combineVariants_octopus
             | map{samplename,marked,markedindex,normvcf,normindex ->
                 tuple(samplename.split('_vs_')[0],samplename.split('_vs_')[1],"octopus",normvcf,normindex)}
@@ -594,7 +598,11 @@ workflow VC {
         octopus_in_tonly=octopus_tonly(bambyinterval_t)
             | bcftools_index_octopus_tonly
             | groupTuple() 
-            | map{samplename,vcf,vcfindex->tuple(samplename,vcf.toSorted{it->(it.name =~ /${samplename}_(.*).tonly.octopus.vcf.gz/)[0][1].toInteger()},vcfindex,"octopus_tonly","")} 
+            | map{samplename,vcf,vcfindex->
+                def sortedVcf = vcf.toSorted{it->(it.name =~ /${samplename}_(.*).tonly.octopus.vcf.gz/)[0][1].toInteger()}.unique()
+                def sortedIdx = vcfindex.toSorted{it->(it.name =~ /${samplename}_(.*).tonly.octopus.vcf.gz.tbi/)[0][1].toInteger()}.unique()
+                tuple(samplename, sortedVcf, sortedIdx, "octopus_tonly", "")
+            } 
             | combineVariants_octopus_tonly
             | join(sample_sheet) 
             | map{tumor,marked,markedindex,normvcf,normindex,normal ->tuple(tumor,"octopus_tonly",normvcf,normindex)}

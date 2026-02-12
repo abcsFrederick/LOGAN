@@ -11,7 +11,7 @@ process vcftools {
     @Output:
         Text file containing a measure of heterozygosity
     */
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
 
     input:

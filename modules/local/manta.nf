@@ -1,7 +1,7 @@
 GENOMEREF=file(params.genomes[params.genome].genome)
 
 process manta_somatic {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_high'
 
     input:
@@ -53,7 +53,7 @@ process manta_somatic {
 
 
 process manta_tonly {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_high'
 
     input:

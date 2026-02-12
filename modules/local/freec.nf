@@ -26,7 +26,7 @@ FREECPLOT = params.freec_plot
 
 
 process freec_paired {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_long'
     errorStrategy 'ignore'
 
@@ -95,7 +95,7 @@ process freec_paired {
 
 
 process freec_paired_exome {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_long'
     errorStrategy 'ignore'
 
@@ -163,7 +163,7 @@ process freec_paired_exome {
 
 
 process freec {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
     errorStrategy 'ignore'
 

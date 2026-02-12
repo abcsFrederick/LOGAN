@@ -308,15 +308,19 @@ workflow VC_TONLY {
     
     //Octopus_tonly
     if ("octopus" in call_list){
-    octopus_in_tonly=bambyinterval | octopus_tonly | bcftools_index_octopus
-        | groupTuple()
-        | map{tumor,vcf,vcfindex -> tuple(tumor,vcf.toSorted{it -> it.name},vcfindex, "octopus_tonly","")} 
-        | combineVariants_alternative | join(sample_sheet)
-        | map{tumor,marked,markedindex,normvcf,normindex ->tuple(tumor,"octopus_tonly",normvcf,normindex)} 
-    annotvep_tonly_octopus(octopus_in_tonly)
-    octopus_in_tonly_sc=octopus_in_tonly | octopus_convertvcf_tonly 
-        | map{tumor,normvcf,normindex ->tuple(tumor,"octopus_tonly",normvcf,normindex)} 
-    vc_tonly=vc_tonly|concat(octopus_in_tonly_sc)
+        octopus_in_tonly=bambyinterval | octopus_tonly | bcftools_index_octopus
+            | groupTuple()
+            | map{tumor,vcf,vcfindex -> 
+                def sortedVcf = vcf.toSorted{it -> it.name}.unique()
+                def sortedIdx = vcfindex.toSorted{it -> it.name}.unique()
+                tuple(tumor, sortedVcf, sortedIdx, "octopus_tonly", "")
+            }
+            | combineVariants_alternative | join(sample_sheet)
+            | map{tumor,marked,markedindex,normvcf,normindex ->tuple(tumor,"octopus_tonly",normvcf,normindex)} 
+        annotvep_tonly_octopus(octopus_in_tonly)
+        octopus_in_tonly_sc=octopus_in_tonly | octopus_convertvcf_tonly 
+            | map{tumor,normvcf,normindex ->tuple(tumor,"octopus_tonly",normvcf,normindex)} 
+        vc_tonly=vc_tonly|concat(octopus_in_tonly_sc)
     }
 
     //DeepSomatic Tonly

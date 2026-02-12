@@ -10,7 +10,7 @@ process samtools_flagstats {
     @Output:
         Text file containing alignment statistics
     */
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
 
     input:

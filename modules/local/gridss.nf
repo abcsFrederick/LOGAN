@@ -13,7 +13,7 @@ if (params.genome.matches("hg38(.*)")| params.genome.matches("hg19(.*)")){
 
 
 process gridss_somatic {
-    container = "${params.containers.sv}"
+    container "${params.containers.sv}"
 
     input:
         tuple val(tumorname), path(tumor), path(tumorbai), 
@@ -75,7 +75,7 @@ process gridss_somatic {
 
 
 process gridss_tonly {
-    container = "${params.containers.sv}"
+    container "${params.containers.sv}"
 
     input:
         tuple val(tumorname), path(tumor), path(tumorbai)

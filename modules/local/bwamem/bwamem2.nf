@@ -1,8 +1,8 @@
 GENOMEREF = file(params.genomes[params.genome].genome)
 
 process bwamem2 {
-    container = "${params.containers.logan}"
-    tag { name }
+    container "${params.containers.logan}"
+    tag { samplename }
     errorStrategy { task.exitStatus in [137,140,143] ? 'retry' : 'terminate' }
     maxRetries 2
 
@@ -53,7 +53,7 @@ process bwamem2 {
 
 
 process BWAMEM2_SPLIT {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     tag { name }
     errorStrategy { task.exitStatus in [137,140,143] ? 'retry' : 'terminate' }
     maxRetries 2
@@ -105,7 +105,7 @@ process BWAMEM2_SPLIT {
 
 
 process COMBINE_ALIGNMENTS {
-    container = "${params.containers.logan}"
+    container "${params.containers.logan}"
     label 'process_medium'
 
     input:

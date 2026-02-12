@@ -143,6 +143,7 @@ def run(main_path, output, _mode, force_all, **kwargs):
             pipeline_name="LOGAN",
             hpc_modules="nextflow/25",
             hpc_walltime="4-00:00:00",
+            hpc_memory="10G",
             **kwargs,
         )
     finally:

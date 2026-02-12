@@ -16,7 +16,7 @@ process somalier_extract {
     @Output:
         Exracted sites in (binary) somalier format
     */
-    container = "${params.containers.loganqc}"
+    container "${params.containers.loganqc}"
     label 'process_low'
 
     input:
@@ -53,7 +53,7 @@ process somalier_analysis_human {
         Separate tab-separated value (TSV) files with relatedness and ancestry outputs
 
     */
-    container = "${params.containers.loganqc}"
+    container "${params.containers.loganqc}"
     label 'process_low'
     errorStrategy='ignore'
 
@@ -118,7 +118,7 @@ process somalier_analysis_mouse {
         Separate tab-separated value (TSV) files with relatedness and ancestry outputs
 
     */
-    container = "${params.containers.loganqc}"
+    container "${params.containers.loganqc}"
     label 'process_low'
     errorStrategy='ignore'
 

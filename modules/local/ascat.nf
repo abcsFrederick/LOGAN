@@ -7,7 +7,7 @@ if (params.genome.matches("hg38(.*)")){
 
 
 process ascat_tn {
-    container = "${params.containers.cnv}"
+    container "${params.containers.cnv}"
     label 'process_medium'
 
     input:
@@ -57,7 +57,7 @@ process ascat_tn {
 
 
 process ascat_tn_exome {
-    container = "${params.containers.cnv}"
+    container "${params.containers.cnv}"
     label 'process_medium'
 
     input:

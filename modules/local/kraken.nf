@@ -11,7 +11,7 @@ process kraken {
     @Output:
         Kraken logfile and interactive krona report
     */
-    container = "${params.containers.loganqc}"
+    container "${params.containers.loganqc}"
     label 'process_high'
 
     input:
