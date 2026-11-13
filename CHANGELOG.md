@@ -1,5 +1,9 @@
 ## LOGAN development version
 
+## LOGAN 0.4.0
+
+- Pin `ccbr_tools` to v0.7. (#122, @kelly-sovacool)
+
 ## LOGAN 0.3.3
 
 - Fixed container mount error - removed broken paths. (#111, @samarth8392)
